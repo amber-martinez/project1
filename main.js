@@ -90,34 +90,6 @@ fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,pol
     }) //receiving data back
     } //end function joke setup
 
-function punchlineJoke(message) {
-    fetch('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=twopart&amount=10') //async js - ajax
-    .then(r => r.json()) //promise
-    .then(function(data) {
-        alert(message)
-        let jokes = data.jokes
-        let randomElement = Math.floor(Math.random() * jokes.length);
-        let randomJoke = jokes[randomElement]
-
-        let jokePunchline = document.createElement('div');
-        jokePunchline.innerHTML = `<div class='leftBubblesWrapper'>
-                <div class='leftContainer'>
-                    <div class='leftPhotoCropper'>
-                        <img class="leftIcon" src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80">
-                    </div>
-                    <div class='leftBubble'>
-                        <p>`+ randomJoke.delivery +`</p>
-                    </div>
-                </div>
-            </div>`
-        let content = document.querySelector('.content');
-        console.log(content)
-        content.appendChild(jokePunchline)
-
-    }) //receiving data back
-    } //end function joke setup
-
-
 let x = document.querySelector('#x')
 let msgButton = document.querySelector('.msgButton')
 let profile = document.querySelector('.bannerName')
