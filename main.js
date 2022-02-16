@@ -29,17 +29,25 @@ function addResponse(message) {
         content.appendChild(youRespond)
 
         if (message.includes('yes')) {
-            setupJoke(message) 
+            typeOfJoke(message) 
         } else if (message.includes('yeah')) {
-            setupJoke(message) 
+            typeOfJoke(message) 
         } else if (message.includes('sure')) {
-            setupJoke(message) 
+            typeOfJoke(message) 
         } else if (message.includes('ya')) {
-            setupJoke(message) 
+            typeOfJoke(message) 
         } else if (message.includes('mhm')) {
-            setupJoke(message) 
+            typeOfJoke(message) 
         } else if (message.includes('no')) {
             noJoke()
+        } else if (message.includes('programming')) {
+            setupJoke(message)
+        } else if (message.includes('dark')) {
+            setupJoke(message)
+        } else if (message.includes('pun')) {
+            setupJoke(message)
+        } else if (message.includes('spooky')) {
+            setupJoke(message)
         }
     }
 }
@@ -62,14 +70,36 @@ function noJoke() {
 } //end function joke setup
 
 
+function typeOfJoke() {
+    let jokeType = document.createElement('div');
+    jokeType.innerHTML = `<div class='leftBubblesWrapper'>
+            <div class='leftContainer'>
+                <div class='leftPhotoCropper'>
+                    <img class="leftIcon" src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80">
+                </div>
+                <div class='leftBubble'>
+                    <p>`+ 'Awesome possum! Do ya wanna hear a pun, a programming joke, a spooky joke, or dark joke?' +`</p>
+                </div>
+            </div>
+        </div>`
+
+        let content = document.querySelector('.content');
+        content.appendChild(jokeType)
+}
+
+
+
 function setupJoke() {
 fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=10') //async js - ajax
 .then(r => r.json()) //promise
 .then(function(data) {
 
-    let jokes = data.jokes
-    let randomElement = Math.floor(Math.random() * jokes.length);
-    let randomJoke = jokes[randomElement]
+    let jokesArray = data.jokes
+    let randomElement = Math.floor(Math.random() * jokesArray.length);
+    let randomJoke = jokesArray[randomElement]
+    jokesArray = jokesArray.filter(function(joke) {
+        return joke !== randomJoke
+    })
     let jokeSetup = document.createElement('div');
     jokeSetup.innerHTML = `<div class='leftBubblesWrapper'>
             <div class='leftContainer'>
