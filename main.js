@@ -112,13 +112,4 @@ msgButton.addEventListener('click', function() {
 })
 
 
-
-// function scrollDown() {
-    // window.setInterval(function() {
-    //     let elem = document.querySelector('.content');
-    //     elem.scrollTop = elem.scrollHeight;
-    // }, 0)
-// }
-
-
 }) 
