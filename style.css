@@ -21,7 +21,6 @@ p {
 
 .chatBorder {
     margin-left: 19.74%;
-    /* margin-bottom: 100px; */
     margin-top: 41px;
     border: 2px solid #24246c;
     height: 600px;
@@ -126,14 +125,6 @@ p {
     text-align: center;
     position: relative;
 }
-
-/* footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-} */
 
 /* left */
 .leftBubblesWrapper {
