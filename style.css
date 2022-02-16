@@ -1,0 +1,248 @@
+.headerImage {
+    width: 350px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 11px;
+}
+p {
+    color: rgb(31, 31, 31);
+}
+
+.content {
+    margin-top: 65px;
+    max-height: 485px;
+    overflow: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatBorder {
+    margin-left: 19.74%;
+    /* margin-bottom: 100px; */
+    margin-top: 41px;
+    border: 2px solid #24246c;
+    height: 600px;
+    width: 1002px;
+    position: absolute;
+}
+
+.banner {
+    border: 2px solid #24246c;
+    height: 80px;
+    width: 1002px;
+    margin-left: 332px;
+    margin-top: -1.5px;
+    position: absolute;
+}
+
+#seeProfile {
+    color: white;
+}
+
+.clickProfile {
+    border: 2px solid #24246c;
+    background-color: #24246c;
+    height: 36px;
+    width: 125px;
+    position: absolute;
+    border-radius: 25px;
+    margin-left: 570px;
+    margin-top: 22px;
+    font-family: Gill Sans;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1px
+}
+
+.bannerName {
+    font-family: Gill Sans;
+    font-size: 35px;
+    margin-left: 480px;
+    top: 18px;
+    color: #242470;
+    background-color: #e1f1ff;
+    position: relative;
+}
+
+#leftArrow {
+    height: 80px;
+    position: absolute;
+    margin-left: 370px;
+    margin-top: 1px;
+}
+
+.popup {
+    text-align: center;
+    bottom: 6%;
+    margin-left: 30%;
+    margin-right: 30%;
+    font-family: Gill Sans;
+    font-size: 25px;
+    max-width: 700px;
+    padding-top: 30px;
+    padding-bottom: 700px;
+    border-color: #242470;
+    border-style: groove;
+    background-color: #e1f1ff;
+    z-index: 99;
+    position: absolute;
+    display: none;
+}
+
+#bio {
+    max-width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#x {
+    margin-top: -675px;
+    margin-left: 624px;
+    color: #242470;
+    font-size: 25px;
+}
+
+.msgButton {
+    font-family: 'Gill Sans';
+    font-size: 25px;
+    bottom: 35px;
+    margin-left: 38%;
+    display: block;
+    text-align: center;
+    position: absolute;
+}
+
+#profilepic {
+    height: 400px;
+    width: auto;
+}
+
+.messageBar {
+    bottom: -515px;
+    text-align: center;
+    position: relative;
+}
+
+/* footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+} */
+
+/* left */
+.leftBubblesWrapper {
+    flex-direction: column-reverse;
+	padding: 10px 10px;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+    align-items: flex-start;
+}
+.leftContainer {
+    margin: 6px 360px;
+    display: inline-flex;
+}
+.leftPhotoCropper {
+    /* margin: 6px 150px; */
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.leftIcon {
+    margin: 0 auto;
+    /* display: inline; */
+    margin-left: -25%;
+    height: 100%;
+    width: auto;
+}
+.leftBubble {
+/* text */
+    font-family: Gill Sans;
+    font-size: 22px;
+/* bubbles */
+    position: relative;
+    min-width: 60px;
+	max-width: 700px;
+    margin: 4px 8px;
+	padding: 14px 18px;
+    /* margin: 6px 150px; */
+    background-color: #fff8d1;
+    border-radius: 16px 16px 16px 0;
+    border: 1px solid #fff8d1;
+}
+
+/* right */
+.rightBubblesWrapper {
+    flex-direction: column-reverse;
+    position: bottom;
+	padding: 10px 10px;
+    align-items: end;
+	display: flex;
+	justify-content: flex-end;
+	/* flex-direction: column; */
+}
+.rightContainer {
+    margin: 6px 360px;
+    display: inline-flex;
+}
+.rightPhotoCropper {
+    /* margin: 6px 8px; */
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.rightIcon {
+    margin: 0 auto;
+    display: inline;
+    margin-left: -10%;
+    height: 175%;
+    width: auto;
+}
+.rightBubble {
+/* text */
+    font-family: Gill Sans;
+    font-size: 22px;
+/* bubbles */
+    position: relative;
+    min-width: 60px;
+	max-width: 700px;
+    margin: 4px 8px;
+	padding: 14px 18px;
+    background-color: #e8eeff; 
+    border-radius: 16px 16px 0 16px;
+    border: 1px solid #e8eeff;
+}
+
+#box {
+    font-family: Gill Sans;
+    font-size: 22px;
+    width: 750px;
+    height: 30px;
+    text-align: left;
+    color: rgb(31, 31, 31);
+    padding: 10px;
+    border-radius: 50px;
+    border-color: #24246c;
+}
+
+.arrow {
+    font-family: Gill Sans;
+    font-size: 22px;
+    margin-bottom: -27px;
+    margin-left: -3px;
+    width: 70px;
+}
+#sendButton {
+    background-color: transparent;
+    border-color: transparent;
+}
