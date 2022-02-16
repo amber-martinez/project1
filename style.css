@@ -140,7 +140,6 @@ p {
     display: inline-flex;
 }
 .leftPhotoCropper {
-    /* margin: 6px 150px; */
     width: 100px;
     height: 100px;
     position: relative;
@@ -149,7 +148,6 @@ p {
 }
 .leftIcon {
     margin: 0 auto;
-    /* display: inline; */
     margin-left: -25%;
     height: 100%;
     width: auto;
@@ -164,7 +162,6 @@ p {
 	max-width: 700px;
     margin: 4px 8px;
 	padding: 14px 18px;
-    /* margin: 6px 150px; */
     background-color: #fff8d1;
     border-radius: 16px 16px 16px 0;
     border: 1px solid #fff8d1;
@@ -178,14 +175,12 @@ p {
     align-items: end;
 	display: flex;
 	justify-content: flex-end;
-	/* flex-direction: column; */
 }
 .rightContainer {
     margin: 6px 360px;
     display: inline-flex;
 }
 .rightPhotoCropper {
-    /* margin: 6px 8px; */
     width: 100px;
     height: 100px;
     position: relative;
