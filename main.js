@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     let form = document.querySelector('.form');
-    console.log(form)
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         console.log(e.target.box)
@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 function addResponse(message) {
-    console.log(message)
     if (message === "") {
         form.reset()
     } else {
@@ -25,7 +24,6 @@ function addResponse(message) {
         </div>
     </div>` 
         let content = document.querySelector('.content');
-        console.log(content)
         content.appendChild(youRespond)
 
         if (message.includes('yes')) {
@@ -46,7 +44,11 @@ function addResponse(message) {
             setupJoke(message)
         } else if (message.includes('pun')) {
             setupJoke(message)
-        } else if (message.includes('spooky')) {
+        } else if (message.includes('Programming')) {
+            setupJoke(message)
+        } else if (message.includes('Dark')) {
+            setupJoke(message)
+        } else if (message.includes('Pun')) {
             setupJoke(message)
         }
     }
@@ -78,7 +80,7 @@ function typeOfJoke() {
                     <img class="leftIcon" src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80">
                 </div>
                 <div class='leftBubble'>
-                    <p>`+ 'Awesome possum! Do ya wanna hear a pun, a programming joke, a spooky joke, or dark joke?' +`</p>
+                    <p>`+ 'Awesome possum! Do ya wanna hear a pun, a programming joke, or dark joke?' +`</p>
                 </div>
             </div>
         </div>`
@@ -88,13 +90,29 @@ function typeOfJoke() {
 }
 
 
-
-function setupJoke() {
-fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=10') //async js - ajax
+function setupJoke(message) {
+fetch('https://v2.jokeapi.dev/joke/Programming,Dark,Pun,Spooky?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=10') //async js - ajax
 .then(r => r.json()) //promise
 .then(function(data) {
 
-    let jokesArray = data.jokes
+    let jokesArray = data.jokes.filter(function(type){
+        if (message.includes('pun')) {
+            return type.category === 'Pun'
+        } else if (message.includes('programming')) {
+            return type.category === 'Programming'
+        } else if (message.includes('dark')) {
+            return type.category === 'Dark'
+        } else if (message.includes('Pun')) {
+            return type.category === 'Pun'
+        } else if (message.includes('Programming')) {
+            return type.category === 'Programming'
+        } else if (message.includes('Dark')) {
+            return type.category === 'Dark'
+        }
+    })
+
+    console.log(jokesArray)
+
     let randomElement = Math.floor(Math.random() * jokesArray.length);
     let randomJoke = jokesArray[randomElement]
     jokesArray = jokesArray.filter(function(joke) {
@@ -113,17 +131,19 @@ fetch('https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,pol
         </div>`
 
         let content = document.querySelector('.content');
-        console.log(content)
         content.appendChild(jokeSetup)
 
 
     }) //receiving data back
-    } //end function joke setup
 
-let x = document.querySelector('#x')
-let msgButton = document.querySelector('.msgButton')
-let profile = document.querySelector('.bannerName')
-let seeProfile = document.querySelector('.clickProfile')
+} //end function joke setup
+
+
+
+let x = document.querySelector('#x');
+let msgButton = document.querySelector('.msgButton');
+let profile = document.querySelector('.bannerName');
+let seeProfile = document.querySelector('.clickProfile');
 
 profile.addEventListener('click', function() {
     document.querySelector('.popup').style.display = 'block';
@@ -141,5 +161,11 @@ msgButton.addEventListener('click', function() {
     document.querySelector('.popup').style.display = 'none';
 })
 
+document.querySelector('body').addEventListener('click', event => {
+    if (event.target.matches('.leftIcon')) {
+        console.log(event.target)
+		document.querySelector('.popup').style.display = 'block';
+    }
+})
 
 }) 
