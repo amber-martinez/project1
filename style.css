@@ -8,6 +8,11 @@
 }
 p {
     color: rgb(31, 31, 31);
+    user-select: none;
+}
+
+img {
+    user-select: none;
 }
 
 .content {
@@ -56,6 +61,25 @@ p {
     line-height: 1px
 }
 
+#seeLiked {
+    color: white;
+}
+
+.clickLiked {
+    border: 2px solid #24246c;
+    background-color: #24246c;
+    height: 36px;
+    width: 190px;
+    position: absolute;
+    border-radius: 25px;
+    margin-left: 1085px;
+    margin-top: 22px;
+    font-family: Gill Sans;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1px
+}
+
 .bannerName {
     font-family: Gill Sans;
     font-size: 35px;
@@ -71,6 +95,34 @@ p {
     position: absolute;
     margin-left: 370px;
     margin-top: 1px;
+}
+
+#favMessages {
+    position: absolute;
+    z-index: 11;
+    text-align: center;
+    top: 28px;
+    height: 700px;
+    left: 30%;
+    right: 30%;
+    font-family: Gill Sans;
+    font-size: 25px;
+    max-width: 900px;
+    padding: 40px 100px 40px 100px;
+    border-color: #242470;
+    border-style: groove;
+    background-color: #e1f1ff;
+    overflow: auto;
+    display: none;
+}
+
+#favX {
+    margin-top: -32px;
+    margin-left: 536px;
+    color: #242470;
+    font-size: 25px;
+    z-index: 12;
+    position: fixed;
 }
 
 .popup {
@@ -127,7 +179,7 @@ p {
 }
 
 /* left */
-.leftBubblesWrapper {
+.leftWrapper {
     flex-direction: column-reverse;
 	padding: 10px 10px;
 	display: flex;
@@ -152,7 +204,7 @@ p {
     height: 100%;
     width: auto;
 }
-.leftBubble {
+#leftBubble {
 /* text */
     font-family: Gill Sans;
     font-size: 22px;
@@ -166,6 +218,14 @@ p {
     border-radius: 16px 16px 16px 0;
     border: 1px solid #fff8d1;
 }
+#likeHeart {
+    position: relative;
+    height: 20px;
+    z-index: 10;
+    float: right;
+    margin: 0;
+    background-color: transparent;
+} 
 
 /* right */
 .rightBubblesWrapper {

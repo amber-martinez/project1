@@ -13,6 +13,9 @@
         <div class='clickProfile'>
             <p id='seeProfile'>see profile</p>
         </div>
+        <div class='clickLiked'>
+            <p id='seeLiked'>favorite messages</p>
+        </div>
         <mark class='bannerName'>Alex</mark>
         <div class='chatBorder'>
                 <div class='messageBar'>
@@ -29,14 +32,19 @@
             <p id='x'>x</p>
             <button class='msgButton'>Message Alex!</button>
         </div>
+        <div id='favMessages'>
+            <p id='favX'>x</p>
+            <h1>Favorite Messages</h1>
+        </div>
         <div class='content'>
-            <div class='leftBubblesWrapper'>
+            <div class='leftWrapper'>
                 <div class='leftContainer'>
                     <div class='leftPhotoCropper'>
                         <img class="leftIcon" src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80">
                     </div>
-                    <div class='leftBubble'>
+                    <div id='leftBubble'>
                         <p>Hey! Wanna hear a joke?</p>
+                    <img hidden id='likeHeart' src='https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1645148289~hmac=37263eb44f685c007fc1049e8ec396d0'>
                     </div>
                 </div>
             </div>

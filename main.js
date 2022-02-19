@@ -56,12 +56,12 @@ function addResponse(message) {
 
 function noJoke() {
     let noJokeResponse = document.createElement('div');
-    noJokeResponse.innerHTML = `<div class='leftBubblesWrapper'>
+    noJokeResponse.innerHTML = `<div class='leftWrapper'>
             <div class='leftContainer'>
                 <div class='leftPhotoCropper'>
                     <img class="leftIcon" src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80">
                 </div>
-                <div class='leftBubble'>
+                <div id='leftBubble'>
                     <p>Aww, alright. Hope you have a nice day!</p>
                 </div>
             </div>
@@ -74,15 +74,16 @@ function noJoke() {
 
 function typeOfJoke() {
     let jokeType = document.createElement('div');
-    jokeType.innerHTML = `<div class='leftBubblesWrapper'>
+    jokeType.innerHTML = `<div class='leftWrapper'>
             <div class='leftContainer'>
                 <div class='leftPhotoCropper'>
                     <img class="leftIcon" src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80">
                 </div>
-                <div class='leftBubble'>
+                <div id='leftBubble'>
                     <p>`+ 'Awesome possum! Do ya wanna hear a pun, a programming joke, or dark joke?' +`</p>
+                    <img hidden id='likeHeart' src='https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1645148289~hmac=37263eb44f685c007fc1049e8ec396d0'>
+                    </div>
                 </div>
-            </div>
         </div>`
 
         let content = document.querySelector('.content');
@@ -119,15 +120,16 @@ fetch('https://v2.jokeapi.dev/joke/Programming,Dark,Pun,Spooky?blacklistFlags=ns
         return joke !== randomJoke
     })
     let jokeSetup = document.createElement('div');
-    jokeSetup.innerHTML = `<div class='leftBubblesWrapper'>
+    jokeSetup.innerHTML = `<div class='leftWrapper'>
             <div class='leftContainer'>
                 <div class='leftPhotoCropper'>
                     <img class="leftIcon" src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80">
                 </div>
-                <div class='leftBubble'>
+                <div id='leftBubble'>
                     <p>`+ randomJoke.joke +`</p>
+                <img hidden id='likeHeart' src='https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1645148289~hmac=37263eb44f685c007fc1049e8ec396d0'>
+                    </div>
                 </div>
-            </div>
         </div>`
 
         let content = document.querySelector('.content');
@@ -140,6 +142,7 @@ fetch('https://v2.jokeapi.dev/joke/Programming,Dark,Pun,Spooky?blacklistFlags=ns
 
 
 
+// event listeners
 let x = document.querySelector('#x');
 let msgButton = document.querySelector('.msgButton');
 let profile = document.querySelector('.bannerName');
@@ -161,11 +164,103 @@ msgButton.addEventListener('click', function() {
     document.querySelector('.popup').style.display = 'none';
 })
 
+
 document.querySelector('body').addEventListener('click', event => {
     if (event.target.matches('.leftIcon')) {
-        console.log(event.target)
 		document.querySelector('.popup').style.display = 'block';
     }
 })
+
+
+// liking messages section
+const fullHeart = 'https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1645148289~hmac=37263eb44f685c007fc1049e8ec396d0';
+const emptyHeart = 'https://cdn-icons.flaticon.com/png/512/4209/premium/4209448.png?token=exp=1645148162~hmac=3ac904f275386a7982b2075e6a17915b' 
+
+//document.querySelector('.leftContainer')
+
+
+// document.querySelector('body').addEventListener('click', event => {
+//     if (event.target.matches('#likeHeart')) {
+//         console.log(event.target)
+//         if (event.target.src === emptyHeart) {
+//             event.target.src = fullHeart;
+//         } else if (event.target.src === fullHeart) {
+//             event.target.src = emptyHeart;
+//         }
+//     }
+// })
+let likedMessages = [];
+document.querySelector('body').addEventListener('dblclick', event => {
+    if (event.target.matches('#leftBubble')) {
+        console.log(event.target)
+
+        let heart = event.target.querySelector('#likeHeart');
+
+
+        if (heart.hasAttribute('hidden')) {
+            likedMessages.push(event.target.innerText)
+            // addFavs()
+            heart.removeAttribute('hidden')
+        }
+        // } else {
+        //     likedMessages.filter(function(el, index) {
+        //         if (likedMessages.includes(el)) {
+        //             // console.log(el)
+        //             likedMessages.splice(index, 1)
+        //         }
+        //         heart.setAttribute('hidden', '')
+        //     })
+        //     heart.setAttribute('hidden', '')
+        //     // console.log(favMessages)
+        // }
+        console.log(likedMessages)
+    }
+})
+
+let favMessages = document.querySelector('#favMessages')
+let clickLiked = document.querySelector('.clickLiked')
+clickLiked.addEventListener('click', function() {
+    // console.log(favMessages)
+    // let favsList = document.createElement('p')
+    // favsList.innerText = likedMessages
+    // favMessages.appendChild(favsList)
+    // console.log(favsList)
+    likedMessages.forEach(function(element) {
+            if (!favMessages.textContent.includes(element)) {
+                // console.log('does not include')
+                let favsList = document.createElement('p')
+                // console.log(element)
+                favsList.innerHTML = `<p id='favs'>`+ element +`<p>`
+                favMessages.appendChild(favsList);
+            }
+    })
+    document.querySelector('#favMessages').style.display = 'block';
+})
+
+// console.log(favMessages)
+// function addFavs() {
+    // console.log(favMessages.textContent)
+        // likedMessages.forEach(function(element) {
+        //     if (favMessages.textContent.includes(element)) {
+        //         // console.log('Duplicate')
+
+        //     } else if (!favMessages.textContent.includes(element)) {
+        //         // console.log('does not include')
+        //         let favsList = document.createElement('p')
+        //         // console.log(element)
+        //         favsList.innerHTML = `<p id='favs'>`+ element +`<p>`
+        //         favMessages.appendChild(favsList);
+        //     } else {
+        //     console.log('else')
+        //     }
+        // })
+// }
+
+
+let favX = document.querySelector('#favX')
+favX.addEventListener('click', function() {
+    document.querySelector('#favMessages').style.display = 'none';
+})
+
 
 }) 
