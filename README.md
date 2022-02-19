@@ -11,6 +11,11 @@ Features
 • 'Like' the other user's messages.<br>
 • Click 'liked messages' to see a list of the messages you have liked.<br>
 
+Basic Playthrough
+----------------
+![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/88984297/154783131-f3841038-debf-46bc-a174-5345983b7e83.gif)
+
+
 Resources Used
 -------------
 **Joke API:** https://v2.jokeapi.dev/
