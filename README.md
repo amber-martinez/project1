@@ -6,8 +6,15 @@ Features
 ---------
 • Send custom messages via the message bar <br>
 • Receive messages from other user in chat <br>
-• Other user asks if you would like to hear a joke. If you say yes, they give you a selection of three categories of jokes to choose from. Based on your chat response, they will send you a joke based off the category you choose.
-• Click 'see profile' or their name at the top of the chat to see a popup of their profile.
+• Other user asks if you would like to hear a joke. If you say yes, they give you a selection of three categories of jokes to choose from. Based on your chat response, they will send you a joke based off the category you choose.<br>
+• Click 'see profile' or their name at the top of the chat to see a popup of their profile.<br>
+• 'Like' the other user's messages.<br>
+• Click 'liked messages' to see a list of the messages you have liked.<br>
+
+Basic Playthrough
+----------------
+![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/88984297/154783131-f3841038-debf-46bc-a174-5345983b7e83.gif)
+
 
 Resources Used
 -------------
