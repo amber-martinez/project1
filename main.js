@@ -93,7 +93,7 @@ function typeOfJoke() {
                 </div>
                 <div id='leftBubble'>
                     <p>`+ 'Awesome possum! Do ya wanna hear a pun, a programming joke, or dark joke?' +`</p>
-                    <img hidden id='likeHeart' src='https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1645237229~hmac=8d65c0d895cbcf5fc6cdc1cfcdc77001'>
+                    <img hidden id='likeHeart' src='https://i.imgur.com/ocXCzVt.png'>
                     </div>
                 </div>
         </div>`
@@ -139,7 +139,7 @@ fetch('https://v2.jokeapi.dev/joke/Programming,Dark,Pun,Spooky?blacklistFlags=ns
                 </div>
                 <div id='leftBubble'>
                     <p>`+ randomJoke.joke +`</p>
-                <img hidden id='likeHeart' src='https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1645237229~hmac=8d65c0d895cbcf5fc6cdc1cfcdc77001'>
+                <img hidden id='likeHeart' src='https://i.imgur.com/ocXCzVt.png'>
                     </div>
                 </div>
         </div>`
