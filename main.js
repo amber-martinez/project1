@@ -38,6 +38,18 @@ function addResponse(message) {
             typeOfJoke(message) 
         } else if (message.includes('no')) {
             noJoke()
+        } else if (message.includes('Yes')) {
+        typeOfJoke(message) 
+        } else if (message.includes('Yeah')) {
+            typeOfJoke(message) 
+        } else if (message.includes('Sure')) {
+            typeOfJoke(message) 
+        } else if (message.includes('Ya')) {
+            typeOfJoke(message) 
+        } else if (message.includes('Mhm')) {
+            typeOfJoke(message) 
+        } else if (message.includes('No')) {
+            noJoke()
         } else if (message.includes('programming')) {
             setupJoke(message)
         } else if (message.includes('dark')) {
@@ -81,7 +93,7 @@ function typeOfJoke() {
                 </div>
                 <div id='leftBubble'>
                     <p>`+ 'Awesome possum! Do ya wanna hear a pun, a programming joke, or dark joke?' +`</p>
-                    <img hidden id='likeHeart' src='https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1645148289~hmac=37263eb44f685c007fc1049e8ec396d0'>
+                    <img hidden id='likeHeart' src='https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1645237229~hmac=8d65c0d895cbcf5fc6cdc1cfcdc77001'>
                     </div>
                 </div>
         </div>`
@@ -127,7 +139,7 @@ fetch('https://v2.jokeapi.dev/joke/Programming,Dark,Pun,Spooky?blacklistFlags=ns
                 </div>
                 <div id='leftBubble'>
                     <p>`+ randomJoke.joke +`</p>
-                <img hidden id='likeHeart' src='https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1645148289~hmac=37263eb44f685c007fc1049e8ec396d0'>
+                <img hidden id='likeHeart' src='https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1645237229~hmac=8d65c0d895cbcf5fc6cdc1cfcdc77001'>
                     </div>
                 </div>
         </div>`
@@ -173,22 +185,6 @@ document.querySelector('body').addEventListener('click', event => {
 
 
 // liking messages section
-const fullHeart = 'https://cdn-icons.flaticon.com/png/512/4209/premium/4209081.png?token=exp=1645148289~hmac=37263eb44f685c007fc1049e8ec396d0';
-const emptyHeart = 'https://cdn-icons.flaticon.com/png/512/4209/premium/4209448.png?token=exp=1645148162~hmac=3ac904f275386a7982b2075e6a17915b' 
-
-//document.querySelector('.leftContainer')
-
-
-// document.querySelector('body').addEventListener('click', event => {
-//     if (event.target.matches('#likeHeart')) {
-//         console.log(event.target)
-//         if (event.target.src === emptyHeart) {
-//             event.target.src = fullHeart;
-//         } else if (event.target.src === fullHeart) {
-//             event.target.src = emptyHeart;
-//         }
-//     }
-// })
 let likedMessages = [];
 document.querySelector('body').addEventListener('dblclick', event => {
     if (event.target.matches('#leftBubble')) {
@@ -196,70 +192,41 @@ document.querySelector('body').addEventListener('dblclick', event => {
 
         let heart = event.target.querySelector('#likeHeart');
 
-
         if (heart.hasAttribute('hidden')) {
             likedMessages.push(event.target.innerText)
-            // addFavs()
+
             heart.removeAttribute('hidden')
+        } else {
+            likedMessages = likedMessages.filter(function(el, index) {
+                return event.target.innerText !== el
+            })
+            heart.setAttribute('hidden', '')
         }
-        // } else {
-        //     likedMessages.filter(function(el, index) {
-        //         if (likedMessages.includes(el)) {
-        //             // console.log(el)
-        //             likedMessages.splice(index, 1)
-        //         }
-        //         heart.setAttribute('hidden', '')
-        //     })
-        //     heart.setAttribute('hidden', '')
-        //     // console.log(favMessages)
-        // }
         console.log(likedMessages)
     }
 })
 
 let favMessages = document.querySelector('#favMessages')
 let clickLiked = document.querySelector('.clickLiked')
+// see liked messages
 clickLiked.addEventListener('click', function() {
-    // console.log(favMessages)
-    // let favsList = document.createElement('p')
-    // favsList.innerText = likedMessages
-    // favMessages.appendChild(favsList)
-    // console.log(favsList)
-    likedMessages.forEach(function(element) {
-            if (!favMessages.textContent.includes(element)) {
-                // console.log('does not include')
-                let favsList = document.createElement('p')
-                // console.log(element)
-                favsList.innerHTML = `<p id='favs'>`+ element +`<p>`
-                favMessages.appendChild(favsList);
-            }
-    })
-    document.querySelector('#favMessages').style.display = 'block';
+    favMessages.innerHTML = `<p id='favX'>x</p>
+    <h1>Favorite Messages</h1>`
+        likedMessages.forEach(function(element) {
+                if (!favMessages.textContent.includes(element)) {
+                    let favsList = document.createElement('p')
+                    favsList.innerHTML = `<p id='favs'>`+ element +`<p>`
+                    favMessages.appendChild(favsList);
+                }
+        })
+        document.querySelector('#favMessages').style.display = 'block';
 })
 
-// console.log(favMessages)
-// function addFavs() {
-    // console.log(favMessages.textContent)
-        // likedMessages.forEach(function(element) {
-        //     if (favMessages.textContent.includes(element)) {
-        //         // console.log('Duplicate')
-
-        //     } else if (!favMessages.textContent.includes(element)) {
-        //         // console.log('does not include')
-        //         let favsList = document.createElement('p')
-        //         // console.log(element)
-        //         favsList.innerHTML = `<p id='favs'>`+ element +`<p>`
-        //         favMessages.appendChild(favsList);
-        //     } else {
-        //     console.log('else')
-        //     }
-        // })
-// }
-
-
-let favX = document.querySelector('#favX')
-favX.addEventListener('click', function() {
-    document.querySelector('#favMessages').style.display = 'none';
+//click fav messages 'x' button
+document.querySelector('body').addEventListener('click', event => {
+    if (event.target.matches('#favX')) {
+        document.querySelector('#favMessages').style.display = 'none';
+    }
 })
 
 
